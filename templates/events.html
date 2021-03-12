@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create card
+{% endblock %}
+
+{% block main %}
+    <form action="/events" method="post" name="form" class="col-lg-6 offset-lg-3 ">
+        <div class="form-group" >
+            <input autocomplete="off" autofocus class="form-control" name="to" placeholder="Name of the person you want to wish" type="text">
+        </div>
+        <br>
+        <div class="form-group" >
+            <input autocomplete="off" autofocus class="form-control" name="name" placeholder="Your name" type="text">
+        </div>
+        <br>
+        <div class="form-group" >
+            <input autocomplete="off" autofocus class="form-control" name="msg" placeholder="Your message" type="text">
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Create my card</button>
+    </form>
+{% endblock %}

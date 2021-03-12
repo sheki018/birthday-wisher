@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta-charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='template.css') }}" rel="stylesheet">
+    <title>Birthady Wisher: Template</title>
+  </head>
+
+  <body>
+    <div id="card">
+      <div id="card-inside">
+        <div class="wrap">
+          <p>Hey {{ to }},</p>
+          <p>{{ msg }}</p>
+          <center><h4>From</h4></center>
+          <p class="signed">{{ name }}</p>
+        </div>
+      </div>
+      <div id="card-front">
+        <div class="wrap">
+          <h1>Happy Birthday!!</h1>
+          <img src="{{ url_for('static', filename='cake.jpg') }}" height = "50%" style="width:100%" >
+        </div>
+        <button id="open">&gt;</button>
+        <button id="close">&lt;</button>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        function $(id) {
+          return document.getElementById(id);
+        }
+
+        var card = $('card'),
+        openB = $('open'),
+        closeB = $('close'),
+        timer = null;
+        console.log('wat', card);
+        openB.addEventListener('click', function () {
+          card.setAttribute('class', 'open-half');
+          if (timer) clearTimeout(timer);
+          timer = setTimeout(function () {
+            card.setAttribute('class', 'open-fully');
+            timer = null;
+          }, 1000);
+        });
+
+        closeB.addEventListener('click', function () {
+          card.setAttribute('class', 'close-half');
+          if (timer) clearTimerout(timer);
+          timer = setTimeout(function () {
+            card.setAttribute('class', '');
+            timer = null;
+          }, 1000);
+        });
+
+      }());
+
+    </script>
+  </body>
+</html>
